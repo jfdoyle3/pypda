@@ -15,15 +15,15 @@ class Database:
         # Check DB exists and option to keep or destroy and renew DB
         path = f'{dbName}.db'
 
-        if not os.path.exists(path) and keepDb==1:
+        if not os.path.exists(path):
             keepDb=2
-            db = open(f"{dbName}.db", "w+")
+            db = open(f"{dbName}.db", "w+")        
             
-        if keepDb==1:
+        if keepDb==0:
+           os.remove(path)
+           db = open(f"{dbName}.db", "w+")
+        elif keepDb==1:
             return
-        elif keepDb==0:
-            os.remove(path)
-            db = open(f"{dbName}.db", "w+")
 
         # Create Table and Fields
         conn = sqlite3.connect(f'{dbName}.db')        
