@@ -1,2 +1,4 @@
 from resources.database_manager import *
-from resources.LCD import *
+
+# LCD Display
+# from resources.LCD import *

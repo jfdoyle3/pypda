@@ -1,4 +1,10 @@
 ## Python backend
+##----------------
+## Uncomment here the LCD Display
+## and resources/init.py
+## To enable Display
+
+
 import resources
 import os
 import time
@@ -15,13 +21,16 @@ def main():
     # lcd = resources.LCD(2, 0x27, True)
 
     # User Input
+    menu = input("1) Add\n2) Read Record\n")
+    
+    if menu=="1":
+        print("input record")
+    if menu=="2":
+        print("read record")
     fname=input("first: ")
     lname=input("last: ")
     
-    if fname=="" & lname=="":
-	record1 = ("Boo", "Hoo")
-    else:
-        record1=(fname,lname)
+    print (f"{fname}, {lname}")
 
     # Use Try / Catch while using file usage.
 
@@ -30,10 +39,10 @@ def main():
 
     # Add / Insert Record
     
-      resources.Database.add_record(dbName, tblName, field1, field2, record1)
+    #resources.Database.add_record(dbName, tblName, field1, field2, record1)
 
     # Read Database
-    resources.Database.read_record(dbName, tblName)
+    # resources.Database.read_record(dbName, tblName)
 
     # Output to LCD Display
     #    lcd.message(" record recorded")
