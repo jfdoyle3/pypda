@@ -15,3 +15,12 @@ time.sleep(3)
 
 lcd.message("World line 1",1)
 lcd.message("Hello line 2",2)
+
+
+
+time.sleep(5)
+lcd.clear()
+
+
+print("end of line")
+
