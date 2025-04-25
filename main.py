@@ -10,6 +10,11 @@ import os
 import time
 
 
+def addRecords(dbName, tblName, field1, field2, record1):
+    # resources.Database.add_record(dbName, tblName, field1, field2, record1)
+    return
+
+
 def main():
     dbName = "contacts"
     tblName = "names"
@@ -22,24 +27,17 @@ def main():
 
     # User Input
     menu = input("1) Add\n2) Read Record\n")
-    
-    if menu=="1":
-        print("input record")
-    if menu=="2":
+
+    if menu == "1":
+        addRecords(dbName, tblName, field1, field2, record1)
+    if menu == "2":
         print("read record")
-    fname=input("first: ")
-    lname=input("last: ")
-    
-    print (f"{fname}, {lname}")
 
     # Use Try / Catch while using file usage.
 
     #  Create Database
     # resources.Database.create(dbName, tblName, field1, field2, keepDb)
 
-    # Add / Insert Record
-    
-    #resources.Database.add_record(dbName, tblName, field1, field2, record1)
 
     # Read Database
     # resources.Database.read_record(dbName, tblName)
