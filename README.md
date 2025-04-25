@@ -1,8 +1,9 @@
-# Starter Repository Template
+# PY PDA
 
-This Repository has a customized gitignore file
-ignores:
-VS CODE, Visual Studio, Eclipse IDE, Intellij IDEA, Python,
-Gradle, Maven.
+little 'cyberdeck' to show
+contacts / passwords / RPG Characters
 
-- added Visual Studio in gitignore 1/31/2023
+making this because of my phone immediate phone
+replacement and needed to get to info.
+Computer was fine, but wanted to make something in case
+nothing but this is available.
