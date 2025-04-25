@@ -4,27 +4,17 @@ import os
 
 
 class Database:
-    def __init__(self, dbName, tblName, field1, field2, keepDb):
+    def __init__(self, dbName, tblName, field1, field2):
         self.dbName = dbName
         self.tblName = tbleName
         self.field1 = field1
         self.field2 = field2
-        self.keepDb = keepDb
 
-    def create(dbName, tblName, field1, field2, keepDb):
+    def create(dbName, tblName, field1, field2):
 
         # Check DB exists and option to keep or destroy and renew DB
         path = f"{dbName}.db"
-
-        if not os.path.exists(path):
-            keepDb = 2
-            db = open(f"{dbName}.db", "w+")
-
-        if keepDb == 0:
-            os.remove(path)
-            db = open(f"{dbName}.db", "w+")
-        elif keepDb == 1:
-            return
+        db = open(f"{dbName}.db", "w+")
 
         # Create Table and Fields
         conn = sqlite3.connect(f"{dbName}.db")

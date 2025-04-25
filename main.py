@@ -10,7 +10,7 @@ import os
 import time
 
 
-def addRecords(dbName, tblName, field1, field2, record1):
+def addRecords(dbName, tblName, field1, field2, record):
     # resources.Database.add_record(dbName, tblName, field1, field2, record1)
     return
 
@@ -20,23 +20,27 @@ def main():
     tblName = "names"
     field1 = "first"
     field2 = "last"
+    record= ("default","record")
     keepDb = 1
 
     # Initalize LCD Display
     # lcd = resources.LCD(2, 0x27, True)
-
+    print(record)
+    if keepDb==0:
+      resources.Database.create(dbName, tblName, field1, field2)
+      
     # User Input
     menu = input("1) Add\n2) Read Record\n")
 
     if menu == "1":
-        addRecords(dbName, tblName, field1, field2, record1)
+        addRecords(dbName, tblName, field1, field2, record)
     if menu == "2":
         print("read record")
 
     # Use Try / Catch while using file usage.
 
     #  Create Database
-    # resources.Database.create(dbName, tblName, field1, field2, keepDb)
+
 
 
     # Read Database
