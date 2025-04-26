@@ -10,9 +10,14 @@ import os
 import time
 
 
-def addRecords(dbName, tblName, field1, field2, record):
-    # resources.Database.add_record(dbName, tblName, field1, field2, record1)
-    return
+def mockData(dbName, tblName, field1, field2, numRecords):
+    totalRecords= len(resources.Database.allRecords(dbName, tblName))
+    startEntry=++totalRecords
+    lastEntry=startEntry+int(numRecords)
+    print(f"--> first / last:{startEntry} / {lastEntry}")
+    for record in range(startEntry, lastEntry):
+        record = ("record", str(record))
+        resources.Database.addRecord(dbName, tblName, field1, field2, record)
 
 
 def main():
@@ -20,28 +25,29 @@ def main():
     tblName = "names"
     field1 = "first"
     field2 = "last"
-    record= ("default","record")
-    keepDb = 1
+    newDb = 1
 
     # Initalize LCD Display
     # lcd = resources.LCD(2, 0x27, True)
-    print(record)
-    if keepDb==0:
-      resources.Database.create(dbName, tblName, field1, field2)
-      
+
+    if newDb == 0:
+        resources.Database.create(dbName, tblName, field1, field2)
+
     # User Input
-    menu = input("1) Add\n2) Read Record\n")
+    menu = input("Record:\n1) Add\n2) Fetch All Records\n3) Get one record\n")
 
     if menu == "1":
-        addRecords(dbName, tblName, field1, field2, record)
-    if menu == "2":
-        print("read record")
-
+        numRecords = input("How many records to add: ")
+        mockData(dbName, tblName, field1, field2, numRecords)
+    elif menu == "2":
+        resources.Database.allRecords(dbName, tblName)
+    elif menu == "3":
+        print("Getting a record")
+    else:
+        print("invalid input")
     # Use Try / Catch while using file usage.
 
     #  Create Database
-
-
 
     # Read Database
     # resources.Database.read_record(dbName, tblName)

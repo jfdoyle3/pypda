@@ -35,7 +35,7 @@ class Database:
         conn.close()
         db.close()
 
-    def add_record(dbName, tblName, field1, field2, record):
+    def addRecord(dbName, tblName, field1, field2, record):
 
         conn = sqlite3.connect(f"{dbName}.db")
 
@@ -52,7 +52,40 @@ class Database:
 
         conn.close()
 
-    def read_table(dbName, tblName):
+    def allRecords(dbName, tblName):
+
+        conn = sqlite3.connect(f"{dbName}.db")
+
+        cur = conn.cursor()
+
+        sql = f"""SELECT * FROM {tblName} """
+
+        cur.execute(sql)
+
+        rows = cur.fetchall()
+        
+
+        conn.close()
+        return rows
+
+    def oneRecord(dbName, tblName, record):
+
+        conn = sqlite3.connect(f"{dbName}.db")
+
+        cur = conn.cursor()
+
+        sql = f"""SELECT * FROM {tblName} """
+
+        cur.execute(sql)
+
+        rows = cur.fetchall()
+
+        for row in rows:
+            print(row)
+
+        conn.close()
+
+    def displayAllRecords(dbName, tblName):
 
         conn = sqlite3.connect(f"{dbName}.db")
 
