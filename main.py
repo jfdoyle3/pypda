@@ -40,7 +40,7 @@ def main():
         numRecords = input("How many records to add: ")
         mockData(dbName, tblName, field1, field2, numRecords)
     elif menu == "2":
-        resources.Database.allRecords(dbName, tblName)
+        resources.Database.displayAllRecords(dbName, tblName)
     elif menu == "3":
         print("Getting a record")
     else:
