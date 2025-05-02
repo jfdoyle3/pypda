@@ -14,7 +14,6 @@ def mockData(dbName, tblName, field1, field2, numRecords):
     totalRecords= len(resources.Database.allRecords(dbName, tblName))
     startEntry=++totalRecords
     lastEntry=startEntry+int(numRecords)
-    print(f"--> first / last:{startEntry} / {lastEntry}")
     for record in range(startEntry, lastEntry):
         record = ("record", str(record))
         resources.Database.addRecord(dbName, tblName, field1, field2, record)
