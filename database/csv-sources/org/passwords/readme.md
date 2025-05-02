@@ -1,0 +1,1 @@
+have a DB table to store passwords
