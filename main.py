@@ -20,18 +20,18 @@ def mockData(dbName, tblName, field1, field2, numRecords):
 
 
 def main():
-    dbName = "contacts"
-    tblName = "names"
+    dbName = "pdadb"
+    tblName = "contacts"
     field1 = "first"
     field2 = "last"
-    newDb = 1
+    newDb = 0
 
     # Initalize LCD Display
     # lcd = resources.LCD(2, 0x27, True)
 
     if newDb == 0:
         resources.Database.create(dbName, tblName, field1, field2)
-
+    '''
     # User Input
     menu = input("Record:\n1) Add\n2) Fetch All Records\n3) Get one record\n")
 
@@ -55,7 +55,7 @@ def main():
     #    lcd.message(" record recorded")
     #    time.sleep(10)
     #    lcd.clear()
-
+    '''
     # End of Line
     print("end of line")
 
