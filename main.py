@@ -22,7 +22,7 @@ def buildDb():
     dbName = "pdadb"
     tblName = {"contacts":["first","last"],
                "rpg":["first","last"],
-               "password":["name","password"]
+               "password":["site","password"]
                }
     
 
