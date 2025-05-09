@@ -18,19 +18,24 @@ def mockData(dbName, tblName, field1, field2, numRecords):
         record = ("record", str(record))
         resources.Database.addRecord(dbName, tblName, field1, field2, record)
 
+def buildDb():
+    dbName = "pdadb"
+    tblName = {"contacts":["first","last"],
+               "rpg":["first","last"],
+               "password":["name","password"]
+               }
+    
+
+    # resources.Database.create(dbName, tblName, field1, field2)       
 
 def main():
-    dbName = "pdadb"
-    tblName = "contacts"
-    field1 = "first"
-    field2 = "last"
     newDb = 0
 
     # Initalize LCD Display
     # lcd = resources.LCD(2, 0x27, True)
 
     if newDb == 0:
-        resources.Database.create(dbName, tblName, field1, field2)
+        buildDb()
     '''
     # User Input
     menu = input("Record:\n1) Add\n2) Fetch All Records\n3) Get one record\n")
