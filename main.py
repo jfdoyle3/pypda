@@ -19,12 +19,17 @@ def mockData(dbName, tblName, field1, field2, numRecords):
         resources.Database.addRecord(dbName, tblName, field1, field2, record)
 
 def buildDb():
+    print("building...")
     dbName = "pdadb"
     tblName = {"contacts":["first","last"],
                "rpg":["first","last"],
                "password":["site","password"]
                }
     
+    for table,field in zip(tblName.keys(),tblName.values()):
+        for tfield in zip(tblName.values()):
+          print(f"Fields: {tfield}")  
+        print(f"Table: {table}   |   Field: {field}")
 
     # resources.Database.create(dbName, tblName, field1, field2)       
 
