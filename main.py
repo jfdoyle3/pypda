@@ -18,29 +18,28 @@ def mockData(dbName, tblName, field1, field2, numRecords):
         record = ("record", str(record))
         resources.Database.addRecord(dbName, tblName, field1, field2, record)
 
-def buildDb():
+def buildDb(dbName):
     print("building...")
-    dbName = "pdadb"
     tblName = {"contacts":["first","last"],
                "rpg":["first","last"],
                "password":["site","password"]
                }
-    
-    for table,field in zip(tblName.keys(),tblName.values()):
-        for tfield in zip(tblName.values()):
-          print(f"Fields: {tfield}")  
-        print(f"Table: {table}   |   Field: {field}")
-
-    # resources.Database.create(dbName, tblName, field1, field2)       
+   
+    for table in tblName:  
+         resources.Database.genTables(dbName, table, tblName[table][0], tblName[table][1])       
 
 def main():
-    newDb = 0
+    dbName = "pdadb"
+    newDb = 1
 
     # Initalize LCD Display
     # lcd = resources.LCD(2, 0x27, True)
 
     if newDb == 0:
-        buildDb()
+        resources.Database.createDb(dbName)
+    
+    buildDb(dbName)
+    
     '''
     # User Input
     menu = input("Record:\n1) Add\n2) Fetch All Records\n3) Get one record\n")

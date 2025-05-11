@@ -9,12 +9,16 @@ class Database:
         self.tblName = tbleName
         self.field1 = field1
         self.field2 = field2
-
-    def create(dbName, tblName, field1, field2):
+        
+    def createDb(dbName):
 
         # Check DB exists and option to keep or destroy and renew DB
         path = f"{dbName}.db"
         db = open(f"{dbName}.db", "w+")
+
+        print("file is Ready")
+        
+    def genTables(dbName, tblName, field1, field2):
 
         # Create Table and Fields
         conn = sqlite3.connect(f"{dbName}.db")
@@ -33,7 +37,6 @@ class Database:
         print("Table is Ready")
 
         conn.close()
-        db.close()
 
     def addRecord(dbName, tblName, field1, field2, record):
 
